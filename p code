@@ -17,8 +17,8 @@ int main(void){
     float vxf= (vi);
     
     
-         float t= (vyf/viy+ay);
+         float t= vyf/(viy+ay);
          printf("total distance:%f\n",t); //prints total distance
          printf("airtime:%f\n", (float) vix*t); //prints airtime
-         printf("maximum height:%f\n",(float) viy*t/2+ay/2*t*t/2); //prints maximum height 
+         printf("maximum height:%f\n",(float) viy*(t/2)+ay/2*(t/2)*t/2); //prints maximum height 
 }
