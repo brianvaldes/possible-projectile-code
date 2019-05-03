@@ -1,29 +1,24 @@
-float x=0;         //initial x position
-float y=0;         //initial y position
-float v0=100;        //projectile initial speed;
-float alpha=PI/4;   //angle
+#include <stdio.h>
+#include <math.h>
+#include <cs50.h>
 
-float xSpeed,ySpeed;  //speed of projectile in both axis
-
-// resistive forces are negative
-float gravity = -9.8;
-float wind = -2;    
-
-void setup() {
-
-//project velocity on both axis
-  xSpeed = v0 * cos(alpha);
-  ySpeed = v0 * sin(alpha);
-
-}
-
-void loop() {
-//update positions
-  x = x + xSpeed;
-  y = y + ySpeed;
-
-//aply resistive forces
-  xSpeed += wind;
-  ySpeed += gravity;
-
+int main(void){
+    int vi=get_int("what is the velocity?\n"); //asks for velocity
+    int angle=get_int("what is the angle?\n"); //asks for angle
+    double ay=-9.8;
+    double pi=3.14159;
+  
+    
+    float vix= vi*cos(angle*pi/180); //adds in the equations for both cos and sin
+    float viy= vi*sin(angle*pi/180);
+       
+    
+    float vyf=(-1*viy);
+    float vxf= (vi);
+    
+    
+         float t= (vyf/viy+ay);
+         printf("total distance:%f\n",t); //prints total distance
+         printf("airtime:%f\n", (float) vix*t); //prints airtime
+         printf("maximum height:%f\n",(float) viy*t/2+ay/2*t*t/2); //prints maximum height 
 }
